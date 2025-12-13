@@ -1,4 +1,4 @@
-# 🔍 Job Scraper
+# 🔍 Job Scraper `#1/365 - 1 Year Challenge`
 
 A full-stack job scraping application that searches LinkedIn and Glassdoor, with AI-powered resume matching to help you find your perfect job.
 
