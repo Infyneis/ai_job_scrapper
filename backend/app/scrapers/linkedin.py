@@ -3,6 +3,15 @@ from .base import BaseScraper
 import urllib.parse
 
 
+def is_obfuscated(text: str) -> bool:
+    """Check if text has been obfuscated by LinkedIn (replaced with asterisks)."""
+    if not text:
+        return True
+    asterisk_count = text.count('*')
+    # If more than 30% asterisks, consider it obfuscated
+    return asterisk_count / len(text) > 0.3
+
+
 class LinkedInScraper(BaseScraper):
     BASE_URL = "https://www.linkedin.com/jobs/search"
 
@@ -69,10 +78,14 @@ class LinkedInScraper(BaseScraper):
                     link = await link_elem.get_attribute("href") if link_elem else ""
                     posted_date = await date_elem.get_attribute("datetime") if date_elem else ""
 
-                    if title and link:
+                    title = title.strip()
+                    company = company.strip()
+
+                    # Skip obfuscated jobs (LinkedIn anti-scraping protection)
+                    if title and link and not is_obfuscated(title):
                         jobs.append({
-                            "title": title.strip(),
-                            "company": company.strip(),
+                            "title": title,
+                            "company": company,
                             "location": job_location.strip(),
                             "url": link.split("?")[0] if link else "",
                             "posted_date": posted_date,
