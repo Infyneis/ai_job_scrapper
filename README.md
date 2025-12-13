@@ -142,18 +142,6 @@ npm run dev
 
 ## 🔧 Configuration
 
-### Environment Variables
-
-Create a `.env` file in the `backend/` directory:
-
-```env
-# Optional: OpenRouter API key for cloud AI fallback
-OPEN_ROUTER_API_KEY=your_key_here
-
-# Database path (default: SQLite)
-DATABASE_URL=sqlite:///./jobs.db
-```
-
 ### AI Providers
 
 The app uses a fallback chain for AI processing:
