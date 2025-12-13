@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SearchFilters from "@/components/SearchFilters";
 import JobList from "@/components/JobList";
-import JobDrawer from "@/components/JobDrawer";
+import JobModal from "@/components/JobModal";
 import { searchJobsStream, StreamEvent } from "@/lib/api";
 import { Job, JobType, Platform } from "@/types";
 
@@ -155,10 +155,12 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Job Drawer */}
-      {selectedJob && (
-        <JobDrawer job={selectedJob} onClose={() => setSelectedJob(null)} />
-      )}
+      {/* Job Modal */}
+      <JobModal
+        job={selectedJob}
+        open={!!selectedJob}
+        onClose={() => setSelectedJob(null)}
+      />
     </div>
   );
 }
