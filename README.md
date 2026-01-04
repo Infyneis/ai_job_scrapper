@@ -1,8 +1,4 @@
-# 🔍 Job Scraper `#1/365 - 1 Year Challenge`
-
-<p align="center">
-  <img src="https://img.shields.io/badge/🚀_Year_Coding_Challenge-Project_%231-ff6b6b?style=for-the-badge" alt="Year Coding Challenge" />
-</p>
+# 🔍 Job Scraper
 
 A full-stack job scraping application that searches LinkedIn and Glassdoor, with AI-powered resume matching to help you find your perfect job.
 
